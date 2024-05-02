@@ -1,3 +1,47 @@
 /* 
     General Styles
 */
+.form {
+    width: auto;
+    margin: 50px;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+.save {
+    width: 100%;
+}
+
+/* CONTACT */
+.boton-contact {
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+/*CONTACT CARD*/
+.card {
+    margin-right: 30px;
+    margin-left: 30px; 
+    display: flex;
+    align-content: stretch;
+}
+.description {
+    width: auto;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.edit-button {
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+}
+.delete{
+    margin-right: 40px;
+}

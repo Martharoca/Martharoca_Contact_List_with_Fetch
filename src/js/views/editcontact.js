@@ -38,7 +38,7 @@ export const EditContact = () => {
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputName" className="form-label"> Full name</label>
-                    <input type="text" name="name" className="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Full name" value={contact.name} onChange={(e) => handleChange(e)} />
+                    <input type="text" name="name" className="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter full name" value={contact.name} onChange={(e) => handleChange(e)} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email</label>

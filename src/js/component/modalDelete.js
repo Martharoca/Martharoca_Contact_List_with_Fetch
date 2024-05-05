@@ -3,14 +3,19 @@ import { Context } from "../store/appContext.js";
 import "../../styles/index.css";
 
 
-export const ModalDelete = ({ setModal, stateModal, contact }) => {
+export const ModalDelete = ({ setModal, stateModal, contact }) => { 
 
+    // console.log(stateModal.show);
     const { store, actions } = useContext(Context)
+    // console.log(store.contactToDelete.id);
 
-     function handleDelete() { 
-         actions.deleteContact(store.contactToDelete.id)
-         setModal({ show: "none" })
-     }
+    // let id = store.contactToDelete.id
+    // console.log(id);
+
+    function handleDelete() {
+        actions.deleteContact(store.contactToDelete.id)
+        setModal({ show: "none" })
+    }
 
 
     return (
@@ -27,12 +32,14 @@ export const ModalDelete = ({ setModal, stateModal, contact }) => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <p>If you delete this thing the entire universe will go down!</p>
+                            <p>If you delete this thing the entire universe will go down! </p>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-primary" onClick={() => { setModal({ show: "none" }) }}>Oh no!</button>
                             <button type="button" className="btn btn-secondary" data-dismiss="modal"
-                                onClick={handleDelete}>Yes baby!</button>
+                                onClick={handleDelete}
+                            >
+                                Yes baby!</button>
                         </div>
                     </div>
                 </div>
@@ -40,3 +47,4 @@ export const ModalDelete = ({ setModal, stateModal, contact }) => {
         </div>
     );
 };
+

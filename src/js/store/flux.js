@@ -18,11 +18,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			contactToDelete: {}
 		},
 		actions: { // FUNCIONES globales
-			createContact: function (contact) {
+			seeContact: (contact) => {
+				setStore({
+					contact: contact
+				})
+			},
+			createContact: (contact) => {
 				fetch("https://playground.4geeks.com/contact/agendas/marta992/contacts", {
 					method: 'POST',
 					headers: {
-						"content-type": "application/json"
+						"Content-Type": "application/json"
 					},
 					body: JSON.stringify({
 						"name": contact.name,
@@ -40,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.log(error))
 			},
 
-			getAllContacts: function () {
+			getAllContacts: () => {
 				fetch('https://playground.4geeks.com/contact/agendas/marta992/contacts')
 					.then((response) => {
 						console.log(response);
@@ -52,17 +57,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((data) => setStore({ contacts: data.contacts }))
 					.catch((error) => console.log(error))
 			},
-			deleteContact: function(contact) {
-				fetch(`https://playground.4geeks.com/contact/agendas/marta992/contacts/${id}`, {
-					method: 'DELETE',
-					headers: {
-						"Content-Type": "application/json"
-					}
-				})
-					 .then((response) => { if (response.ok) getActions().getAllContacts() })
-					 .catch((error) => console.log(error))
+			// deleteContact: (id) => {
+			// 	fetch(`https://playground.4geeks.com/contact/agendas/marta992/contacts/${id}`, {
+			//  		method: 'DELETE',
+			//  		// headers: {
+			//  		// 	"Content-Type": "application/json"
+			//  		// }
+			//  	})
+			//  		 .then((response) => { if (response.ok) getActions().getAllContacts() })
+			//  		 .catch((error) => console.log(error))
+			//  },
+			//  contactToDelete: () => {
+			// 	setStore({contactToDelete: contact})
+			//  },
+			setContactToDelete: (contact) => {
+				setStore({contact:contact})
 			},
-			createUser: function () {
+			deleteContact: (id) => {
+			 	fetch('https://playground.4geeks.com/contact/agendas/marta992/contacts/${id}', {
+			 		method: 'DELETE',
+			 		headers: {
+			 			"Content-Type": "application/json"
+			 		}
+			 	})
+			 	.then((response) => {
+			 		return response.json()})
+			 	.then((data) => {
+			 		getAllContacts();
+			 		console.log(data);
+			 	})
+			 	.catch((error)=> {
+			 		console.log(error)
+			 	})
+			 	}
+			 },
+			createUser:  () => {
 				fetch('https://playground.4geeks.com/contact/agendas/marta992', {
 					method: 'POST',
 					body: JSON.stringify(""),
@@ -74,6 +103,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((data) => console.log(data))
 					.catch((error) => console.log(error))
 			},
+			editContact:  (fullName, email, address, phone, id) => {
+				fetch('https://playground.4geeks.com/contact/agendas/marta992/contacts/'+id, {
+					method:'PUT',
+					body: JSON.stringify(
+						{
+							"name": fullName,
+							"email": email,
+							"address": address,
+							"phone": phone
+						}
+					),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+				.then((response)=> {
+					return response.json()
+				})
+				.then((data)=> {
+					console.log(data);
+				})
+				.catch((error)=>{
+					console.log(error)}
+				)
 		}
 	};
 };

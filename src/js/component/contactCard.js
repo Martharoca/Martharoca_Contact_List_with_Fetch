@@ -22,7 +22,8 @@ export const ContactCard = ({ contact, setModal }) => {
 				<div className="edit-button">
 					<span className="edit me-5" onClick={() => {actions.seeContact(contact)
 						navigate("/editcontact")}}><i className="fas fa-pen"/></span>
-					<span className="delete" onClick={()=>setModal({show:"block"})}><i className="fas fa-trash"/></span>
+					<span className="delete" onClick={() => {actions.contactToDelete(contact)
+					setModal({show:"block"})}}><i className="fas fa-trash"/></span>
 				</div>
 				<img src="https://picsum.photos/200" alt="random-img" />
 				<div className="description">

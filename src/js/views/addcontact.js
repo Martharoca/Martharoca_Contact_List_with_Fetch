@@ -33,7 +33,7 @@ export const AddContact = () => {
             <form onSubmit={handleSubmit} >
                 <div className="mb-3">
                     <label htmlFor="exampleInputName" className="form-label"> Name</label>
-                    <input type="text" className="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Full name" onChange={(event) => { setName(event.target.value) }} />
+                    <input type="text" className="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter full name" onChange={(event) => { setName(event.target.value) }} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email</label>

@@ -12,7 +12,7 @@ export const EditContact = () => {
         setContact({ ...contact, [event.target.name]: event.target.value })
     }
     const navigate = useNavigate()
-    console.log(store.contact);
+    //console.log(store.contact);
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -34,7 +34,7 @@ export const EditContact = () => {
 
     return (
         <div className="form">
-            <h1 className="title">Add a new contact</h1>
+            <h1 className="title">Edit the contact</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputName" className="form-label"> Full name</label>

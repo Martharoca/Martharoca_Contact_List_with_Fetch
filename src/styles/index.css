@@ -13,6 +13,11 @@
 .save {
     width: 100%;
 }
+.btn-custom-violet {
+    color: #fff; 
+    background-color:#8a2be2; 
+    border-color: #8a2be2;
+  }
 
 /* CONTACT */
 .boton-contact {

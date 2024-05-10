@@ -9,9 +9,6 @@ export const ModalDelete = ({ setModal, stateModal, contact }) => {
     const { store, actions } = useContext(Context)
     // console.log(store.contactToDelete.id);
 
-    // let id = store.contactToDelete.id
-    // console.log(id);
-
     function handleDelete() {
         actions.deleteContact(store.contactToDelete.id)
         setModal({ show: "none" })

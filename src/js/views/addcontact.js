@@ -47,7 +47,7 @@ export const AddContact = () => {
                     <label htmlFor="exampleInputAddress" className="form-label">Address</label>
                     <input type="text" className="form-control" id="exampleInputAddress" aria-describedby="addressHelp" placeholder="Enter address" onChange={(event) => { setAddress(event.target.value) }} />
                 </div>
-                <button type="submit" className="save btn btn-primary">save</button>
+                <button type="submit" className="save btn btn-custom-violet">save</button>
 
             </form>
             <Link to="/">
